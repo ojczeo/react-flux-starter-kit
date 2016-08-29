@@ -1,8 +1,8 @@
 // "use strict";
 
 var React = require('react');
-var Header = require('./components/common/header');
-var RouterHandler = require('react-router');
+var Header = require('./common/header');
+var RouteHandler = require('react-router').RouteHandler;
 $ = jQuery = require('jquery');
 
 
@@ -11,7 +11,9 @@ var App = React.createClass({
     return (
       <div>
         <Header />
-        <RouteHandler />
+        <div className="container">
+          <RouteHandler />
+        </div>
       </div>
     );
   }
