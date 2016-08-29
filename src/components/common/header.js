@@ -1,6 +1,8 @@
 "use strict";
 
 var React = require('react');
+var Router = require('react-router');
+var Link = Router.Link;
 
 var Header = React.createClass({
   handleClick: function(e) {
@@ -15,9 +17,9 @@ var Header = React.createClass({
             <img src="../../images/logo.png" />
           </a>
           <ul className="nav navbar-nav">
-            <li><a onClick={this.handleClick} href="/">Home</a></li>
-            <li><a onClick={this.handleClick} href="/#authors">Authors</a></li>
-            <li><a onClick={this.handleClick} href="/#about">About</a></li>
+            <li><Link to="app">Home</Link></li>
+            <li><Link to="authors">Authors</Link></li>
+            <li><Link to="about">About</Link></li>
           </ul>
         </div>
       </nav>
