@@ -24,7 +24,7 @@ var Input = React.createClass({
     // console.log(this.state, "state!");
     var wrapperClass = function() {
       var cssClass = 'form-group';
-      if (this.props.error && this.props.error.length > 0) {
+      if (this.props.errors && this.props.errors.length > 0) {
         cssClass += " " + 'has-error';
       }
 
@@ -42,7 +42,7 @@ var Input = React.createClass({
           value={this.props.value}
           onChange={this.props.onChange}
         />
-        <div className="input">{this.props.error}</div>
+      <div className="input">{this.props.error}</div>
       </div>
     );
   }

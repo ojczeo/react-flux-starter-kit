@@ -34,11 +34,15 @@ var ManageAuthorPage = React.createClass({
     if (this.state.author.firstName.length < 3) {
       this.state.errors.firstName = "First name must be at least 3 letters";
       formIsValid = false;
+    } else {
+      this.state.errors.firstName = null;
     }
 
     if (this.state.author.lastName.length < 3) {
       this.state.errors.lastName = "Last name must be at least 3 letters";
       formIsValid = false;
+    } else {
+      this.state.errors.lastName = null;
     }
 
     this.setState({errors: this.state.errors});
