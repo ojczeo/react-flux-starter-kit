@@ -5,14 +5,23 @@ var React = require('react');
 var Input = React.createClass({
   propTypes: {
     name: React.PropTypes.string.isRequired,
-    label: React.PropTypes.string.isRequired,
     onChange: React.PropTypes.func.isRequired,
-    placeholder: React.PropTypes.string.isRequired,
     value: React.PropTypes.string,
     error: React.PropTypes.string
   },
-  
+
+  componentWillMount: function() {
+    // console.log(this.props, "props!");
+    this.setState({
+      name: this.props.name,
+      placeholder: this.props.label,
+      value: this.props.value,
+      label: this.props.label
+    });
+  },
+
   render: function() {
+    // console.log(this.state, "state!");
     var wrapperClass = function() {
       var cssClass = 'form-group';
       if (this.props.error && this.props.error.length > 0) {
@@ -26,11 +35,11 @@ var Input = React.createClass({
       <div className={wrapperClass}>
         <label htmlFor={this.props.name}>{this.props.label}</label>
         <input type='text'
-          name='lastName'
+          name={this.props.name}
           className='form-control'
-          placeholder='Last Name'
-          ref='lastName'
-          value={this.props.author.lastName}
+          placeholder={this.props.label}
+          ref='{this.props.name}'
+          value={this.props.value}
           onChange={this.props.onChange}
         />
         <div className="input">{this.props.error}</div>
